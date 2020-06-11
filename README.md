@@ -16,4 +16,4 @@ A budget application developing witi JS 💸💸💸
 
 # Demo
 
-<li><a href="https://khalinguy.github.io/Budget-App/">Budget App</a></li>
+<li><a href="https://khalinguy.github.io/Budget-App/">Budget App Demo</a></li>
