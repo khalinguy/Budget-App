@@ -1,5 +1,5 @@
 # Budget-App
-A budget application developing witi JS 💸💸💸
+A budget application developing with JS 💸💸💸
 
 # Stack
 
