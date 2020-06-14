@@ -107,6 +107,18 @@ var budgetController = (function() {
             data.allItems[type][index].value = val;
         },
 
+        findItemById: function(id, type){
+            var ids, index;
+
+            ids = data.allItems[type].map(function(current) {
+                return current.id;
+            });
+
+            index = ids.indexOf(id);
+
+            return data.allItems[type][index];
+        },
+
         calculateBudget: function() {
 
             // calculate total income and expenses
@@ -427,13 +439,14 @@ var controller = (function(budgetCtrl, UICtrl) {
 
 
     var ctrlDeleteEditItem = function(event) {
-        var itemID, splitID, type, ID, action, description, value, desDOM, valDOM;
+        var itemID, splitID, type, ID, action, description, value, desDOM, valDOM, numbers, valCheck;
 
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         action = event.target.parentNode;
         splitID = itemID.split('-');
         type = splitID[0];
         ID = parseInt(splitID[1]);
+        numbers = /^[0-9]+$/;
 
         // Delete item
         if (action.className === 'item__delete--btn'){
@@ -467,7 +480,22 @@ var controller = (function(budgetCtrl, UICtrl) {
                     if (event.keyCode === 13 || event.which === 13) {
                         description = desDOM.textContent;
                         value = valDOM.textContent;
-                        value = parseFloat(value.replace(/,/g,'').replace('+','').replace('-',''));
+                        value = value.replace(/,/g,'').replace('+','').replace('-','').trim();
+
+                        if(value.includes('.')){
+                            valCheck = value.split('.');
+                            if (valCheck[0].match(numbers) != null && valCheck[1].match(numbers) != null){
+                                value = parseFloat(value);
+                            } else{
+                                value = budgetCtrl.findItemById(ID,type).value;
+                            }
+                        } else {
+                            if (value.match(numbers) != null){
+                                value = parseFloat(value);
+                            } else {
+                                value = budgetCtrl.findItemById(ID,type).value;
+                            }
+                        }
 
                         desDOM.setAttribute('contenteditable',false);
                         valDOM.setAttribute('contenteditable',false);
