@@ -467,7 +467,7 @@ var controller = (function(budgetCtrl, UICtrl) {
                     if (event.keyCode === 13 || event.which === 13) {
                         description = desDOM.textContent;
                         value = valDOM.textContent;
-                        value = parseFloat(value.replace(',','').replace('+','').replace('-',''));
+                        value = parseFloat(value.replace(/,/g,'').replace('+','').replace('-',''));
 
                         desDOM.setAttribute('contenteditable',false);
                         valDOM.setAttribute('contenteditable',false);
