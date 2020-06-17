@@ -16,5 +16,5 @@ A budget application developing with JS 💸💸💸
 
 # Demo
 
-<li><a href="https://khalinguy.github.io/Budget-App/">Weather App Demo</a></li></br>
+<li><a href="https://khalinguy.github.io/Budget-App/">Budget App Demo</a></li></br>
 
