@@ -14,5 +14,7 @@ A budget application developing with JS 💸💸💸
 ✔️ Calculate total budget and percentages of expenses<br/>
 ✔️ Easy and handy<br/>
 
-# Demo pic
+# Demo
+
+<li><a href="https://khalinguy.github.io/Budget-App/">Weather App Demo</a></li></br>
 
